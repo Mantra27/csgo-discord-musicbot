@@ -29,7 +29,7 @@ const fs = require('fs')
 const ytdl = require('ytdl-core');
 const token = config.bot_token;
 var logfile = config.path
-var vcid = config.channel_id;
+var vcid = config.channle_id;
 console.log('//Listenin to CS:GO chat......//')
     client.once('ready', () => {
         console.log('Bot is online !')
