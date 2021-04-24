@@ -20,6 +20,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
+
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const config = require(__dirname+"\\settings.json");
@@ -28,7 +29,7 @@ const fs = require('fs')
 const ytdl = require('ytdl-core');
 const token = config.bot_token;
 var logfile = config.path
-var vcid = config.channle_id;
+var vcid = config.channel_id;
 console.log('//Listenin to CS:GO chat......//')
     client.once('ready', () => {
         console.log('Bot is online !')
@@ -51,52 +52,21 @@ console.log('//Listenin to CS:GO chat......//')
                         VC.leave();
                         console.log('bot has been disconnected on command')
                     }
-                    else if(msg.startsWith("playx")){
-                        if(msg.includes("/at")){
-
-                            msg = msg.replace("playx", "")
-                            var ts = msg.split("/at")[1]
-                            msg = msg.replace(ts, "")
-                            msg = msg.replace("/at", "")
-                            msg = msg.trim();
-                            ts = ts.trim();
-        
-                            async function aditya_bro_lalDIL(){
-                                const axios = require("axios")
-                                const api_key = "AIzaSyDNo7XEiPZNRncqv7Pvq2ggnkJdC_N4DUI"
-                                var query = 'jonathan 1v5'
-                                const ma = "https://www.googleapis.com/youtube/v3/search?part=snippet&key="+api_key+"&type=video&q="+query
-                                axios.get(ma)
-                                  .then(response => {
-                                    console.log('https://www.youtube.com/watch?v='+response.data.items[1].id.videoId);
-                                    var link = 'https://www.youtube.com/watch?v='+response.data.items[1].id.videoId
-                                    client.user.setActivity(msg,{type:"LISTENING"});
-                                    let VC = client.channels.cache.get(vcid); 
-                                        VC.join().then(connection =>{
-                                        const dispatcher = connection.play(ytdl(link, { filter: 'audioonly' }));
-                                        dispatcher.on("end", end => {
-                                            let VC = client.channels.cache.get(vcid);
-                                            VC.leave();
-                                            console.log('Playing is finished!');
-                                        });    
-                                    })       
-                                  });
-                        }
-                            aditya_bro_lalDIL();
-                        }
+                   
                         else{
                         msg = msg.replace("playx", "")
                         msg = msg.trim();
 
-                        const ytsr = require('ytsr');
+                        
                         async function aditya_bro_lalDIL(){
                         
                             const axios = require("axios")
                             const api_key = "AIzaSyDNo7XEiPZNRncqv7Pvq2ggnkJdC_N4DUI"
-                            var query = 'jonathan 1v5'
-                            const ma = "https://www.googleapis.com/youtube/v3/search?part=snippet&key="+api_key+"&type=video&q="+query
-                            axios.get(ma)
+                            const ma = "https://www.googleapis.com/youtube/v3/search?part=snippet&key="+api_key+"&type=video&q="+msg
+                            bruhrun();
+                            function bruhrun(){axios.get(ma)
                               .then(response => {
+                               
                                 console.log('https://www.youtube.com/watch?v='+response.data.items[1].id.videoId);
                                 var link = 'https://www.youtube.com/watch?v='+response.data.items[1].id.videoId
                                 client.user.setActivity(msg,{type:"LISTENING"});
@@ -111,45 +81,45 @@ console.log('//Listenin to CS:GO chat......//')
                                 })       
 
                               });
-                        
-                    }
-                        aditya_bro_lalDIL();}
+                            }
+                            }
+                        aditya_bro_lalDIL();
                 }
-                 else if(msg.startsWith("playx") && msg.includes("/at")){
+                //  else if(msg.startsWith("playx") && msg.includes("/at")){
 
-                    const timestamp = msg;
-                    for(var indi = 0; indi < msg.split(" ").length; indi++){
-                        timestamp = timestamp.replace("playx", "") 
-                        timestamp = timestamp.replace("/at", "")
-                        timestamp = timestamp.trim();
-                        console.log(timestamp)
-                    }
+                //     const timestamp = msg;
+                //     for(var indi = 0; indi < msg.split(" ").length; indi++){
+                //         timestamp = timestamp.replace("playx", "") 
+                //         timestamp = timestamp.replace("/at", "")
+                //         timestamp = timestamp.trim();
+                //         console.log(timestamp)
+                //     }
 
-                    msg = msg.replace("playx", "")
-                    const new_msg = msg.split("/at")[1]
-                    msg = msg.replace("/at", "")
-                    msg = msg.replace(new_msg, "")
-                    msg = msg.trim();
-                    console.log('did pslit worked ?'+new_msg)
-                    const ytsr = require('ytsr');
-                    async function aditya_bro_lalDIL(){
+                //     msg = msg.replace("playx", "")
+                //     const new_msg = msg.split("/at")[1]
+                //     msg = msg.replace("/at", "")
+                //     msg = msg.replace(new_msg, "")
+                //     msg = msg.trim();
+                //     console.log('did pslit worked ?'+new_msg)
+                //     const ytsr = require('ytsr');
+                //     async function aditya_bro_lalDIL(){
                     
-                    console.log(link)
-                    console.log(`link of `+`${msg}: ` + link)
+                //     console.log(link)
+                //     console.log(`link of `+`${msg}: ` + link)
                     
-                        client.user.setActivity(msg,{type:"LISTENING"});
-                        let VC = client.channels.cache.get(vcid); 
-                            VC.join().then(connection =>{
-                            const dispatcher = connection.play(ytdl(video.url, { filter: 'audioonly' }));
-                            dispatcher.on("end", end => {
-                                let VC = client.channels.cache.get(vcid);
-                                VC.leave();
-                                console.log('Playing is finished!');
-                            });    
-                        })       
-                }
-                    aditya_bro_lalDIL();
-                }
+                //         client.user.setActivity(msg,{type:"LISTENING"});
+                //         let VC = client.channels.cache.get(vcid); 
+                //             VC.join().then(connection =>{
+                //             const dispatcher = connection.play(ytdl(video.url, { filter: 'audioonly' }));
+                //             dispatcher.on("end", end => {
+                //                 let VC = client.channels.cache.get(vcid);
+                //                 VC.leave();
+                //                 console.log('Playing is finished!');
+                //             });    
+                //         })       
+                // }
+                //     aditya_bro_lalDIL();
+                // }
                 }
             })}})})
 
