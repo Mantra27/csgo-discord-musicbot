@@ -61,7 +61,7 @@ console.log('//Listenin to CS:GO chat......//')
                         async function aditya_bro_lalDIL(){
                         
                             const axios = require("axios")
-                            const api_key = "AIzaSyDNo7XEiPZNRncqv7Pvq2ggnkJdC_N4DUI"
+                            const api_key = process.env.APIofYT
                             const ma = "https://www.googleapis.com/youtube/v3/search?part=snippet&key="+api_key+"&type=video&q="+msg
                             bruhrun();
                             function bruhrun(){axios.get(ma)
